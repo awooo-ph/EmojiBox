@@ -1,5 +1,5 @@
 # EmojiBox
-A .NET library to quickly integrate an emoji picker into your WPF app!
+A .NET library to quickly integrate an emoji picker/text box into your WPF app!
 
 While developing my calendar program, [Shine Calendar](http://shinecalendar.tumblr.com/), I decided I wanted to add emoji support to it so that users could create events and use emoji to share with it. I soon quickly realized that WPF does not include any way of handling emoji out of the box. *(The best you can do is use the Segoe UI Symbols font, but it only gives you monochrome images that, frankly, don't look all that great.)* **So, I decided to build my own emoji support!**
 
@@ -48,14 +48,18 @@ EmojiBox was created by Jacob R. Huempfner, and is maintained by Jacob R. Huempf
   
 5. Why is the DLL so big?
 
-  * The compiled DLL includes the entire Emoji One image library within it as resource files (excepting the 512 by 512 images, because those are massive). Would you prefer a single kind-of-large DLL, or a small DLL with a bunch of subdirectories needed with it?
-  
-6. Where can I documentation or samples?
+  * The compiled DLL includes the entire Emoji One image library within it as resource data (excepting the 512 by 512 images, because those are massive). I know the resulting DLL is a bit big, but honestly, you can't really have an emoji picker if you don't have emoji...
+ 
+6. Why is the Json.NET DLL needed? Can you remove the library from your code?
+
+  * To perform a lot of its functions, EmojiBox relies upon a JSON file that is included with the Emoji One library. I decided to use the Json.NET library to make working with the JSON data easy; I know the library is probably a bit overkill for what I need it for, and in the future, I'll probably look into other ways to read the data instead. Having another DLL in your program's folder won't kill you though. Honestly, chances are you're using that library for something else already anyway!
+
+7. Where can I documentation or samples?
 
   * The code includes a Sample library that you can get insipiration from (or just simply copy over a bunch of code from). That should be enough to provide a bit of a jump-start, but if people have more ideas of other samples to make, let me know!
   * I will also get the documentation up some point soon!
   
-6. I have a licensing question.
+8. I have a licensing question.
 
   * Check the [Licensing FAQs](licensing-faqs.md), or contact me!
 
