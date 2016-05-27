@@ -34,4 +34,4 @@
 
 7. If I have any additional questions, where should I contact you?
 
-  * I can be reached on Twitter (@JaykeBird)[http://twitter.com/JaykeBird]. If you need to send an email, you can do so at (shine-calendar@outlook.com)[mailto:shine-calendar@outlook.com].
+  * I can be reached on Twitter (@JaykeBird)[http://twitter.com/JaykeBird]. If you need to send an email, you can do so at shine-calendar@outlook.com.
