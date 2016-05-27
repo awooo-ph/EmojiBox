@@ -5,7 +5,7 @@ While developing my calendar program, [Shine Calendar](http://shinecalendar.tumb
 
 EmojiBox provides a relatively simple and quick-to-set-up process to add Emoji support to your app!
 
-EmojiBox uses [Emoji One](http://emojione.com) as the emoji image source! EmojiBox also uses the easy-to-use [Json.NET](http://www.newtonsoft.com/json) library. Need a list of emoji? [Emoji Cheat Sheet](http://www.emoji-cheat-sheet.com) has you covered!
+EmojiBox uses [Emoji One](http://emojione.com) as the emoji image source! EmojiBox also uses the easy-to-use [Json.NET](http://www.newtonsoft.com/json) library.
 
 ### Start using EmojiBox
 
