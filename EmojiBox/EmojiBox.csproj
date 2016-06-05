@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Emoji.cs" />
     <Compile Include="EmojiParser.cs" />
+    <Compile Include="Ui\EmojiRichTextBox.cs" />
     <Compile Include="Ui\EmojiSelector.xaml.cs">
       <DependentUpon>EmojiSelector.xaml</DependentUpon>
     </Compile>
