@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EmojiBox.Ui
 {
-    public class EmojiRichTextBox : RichTextBox
+	public class EmojiRichTextBox : RichTextBox
     {
         bool readingInput = false;
         string input = "";
@@ -34,7 +27,7 @@ namespace EmojiBox.Ui
             this.PreviewKeyDown += EmojiRichTextBox_KeyDown;
         }
 
-        private void EmojiRichTextBox_KeyDown(object sender, KeyEventArgs e)
+		private void EmojiRichTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Back)
             {
@@ -93,7 +86,7 @@ namespace EmojiBox.Ui
             else if (e.Text == ":")
             {
                 readingInput = true;
-                inputStart = CaretPosition;
+				inputStart = CaretPosition;
                 Debug.Print("Start reading");
             }
         }
@@ -122,10 +115,14 @@ namespace EmojiBox.Ui
                 return false;
             }
 
-            if (startLoc.Parent is Run)
+			// When the TextBox is completely empty, Parent is FlowDocument
+            if (startLoc.Parent is Run || startLoc.Parent is FlowDocument)
             {
-                // Re-arrange text
-                Run r = startLoc.Parent as Run;
+                dynamic r = startLoc.Parent as Run;
+				if (r == null)
+					r = startLoc.Parent as FlowDocument;
+
+				// Re-arrange text
                 Run runBefore = new Run(new TextRange(r.ContentStart, range.Start).Text);
                 Run runAfter = new Run(new TextRange(range.End, r.ContentEnd).Text);
 
@@ -143,11 +140,20 @@ namespace EmojiBox.Ui
                 {
                     Paragraph p = range.Start.Paragraph;
 
-                    p.Inlines.Add(runBefore);
+					// Entering into a completely empty TextBox, causes more runs to be created idk
+					Run lastInline = p.Inlines.LastInline as Run;
+
+					if (lastInline != null && lastInline.Text.EndsWith(emojiName))
+						p.Inlines.Remove(lastInline);
+
+					// Remove emoji text from new inline
+					if (runBefore.Text.EndsWith(emojiName))
+						runBefore.Text = runBefore.Text.Substring(0, runBefore.Text.Length - (emojiName.Length + 1));
+
+					p.Inlines.Add(runBefore);
                     p.Inlines.Add(img);
                     p.Inlines.Add(runAfter);
-                    p.Inlines.Remove(r);
-                }
+				}
                 else
                 {
                     CaretPosition = runAfter.ContentEnd;
