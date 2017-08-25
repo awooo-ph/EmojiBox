@@ -62,6 +62,14 @@ EmojiBox was created by Jacob R. Huempfner, and is maintained by Jacob R. Huempf
 8. I have a licensing question.
 
   * Check the [Licensing FAQs](licensing-faqs.md), or contact me!
+  
+9. Is this project abandoned?
+
+  * No, although it may look like it! 😞 I have had a hard time finding the motivation to do more programming recently, due to unrelated personal issues. Coupled with this is continued problems my computer is currently facing, and yeah, haven't been able to progress much. At some point soon, though, I will hope to return and do more work!
+  
+10. What do you think of the Emoji Movie?
+
+  * I am not associated with the Emoji Movie in any shape or form. ... Nor do I want to be.
 
 ### Contact Me
 
